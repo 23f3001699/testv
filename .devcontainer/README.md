@@ -4,13 +4,28 @@ This devcontainer provides a minimal Verilog development environment with the OS
 
 ## Features
 
-- **Base Image**: Debian Bookworm Slim (minimal)
+- **Base Image**: Debian Bookworm Slim (minimal) - Alpine alternative available
 - **OSS CAD Suite**: Latest release from [YosysHQ/oss-cad-suite-build](https://github.com/YosysHQ/oss-cad-suite-build/releases)
 - **Verilog Tools**: Yosys, Verilator, IceStorm, nextpnr, and more from OSS CAD Suite
 - **VS Code Extensions**: 
   - Verilog/SystemVerilog language support
   - TerosHDL for advanced HDL development
   - WaveTrace for waveform viewing
+
+## Base Image Options
+
+Two minimal base images are provided:
+- **Dockerfile** - Uses Debian Bookworm Slim (default, ~80MB base)
+- **Dockerfile.alpine** - Uses Alpine Linux (even smaller, ~7MB base)
+
+To use Alpine instead of Debian, modify `devcontainer.json` and change:
+```json
+"dockerfile": "Dockerfile"
+```
+to:
+```json
+"dockerfile": "Dockerfile.alpine"
+```
 
 ## Usage
 
@@ -37,11 +52,12 @@ verilator --version
 ## Customization
 
 You can modify the Dockerfile to:
-- Change the base image to Alpine if you prefer (change `FROM debian:bookworm-slim` to `FROM alpine:latest`)
+- Switch between Debian (Dockerfile) and Alpine (Dockerfile.alpine) base images
 - Add additional system packages
-- Configure different OSS CAD Suite versions
+- Configure different OSS CAD Suite versions (change the download URL)
 
 You can modify devcontainer.json to:
 - Add or remove VS Code extensions
 - Change editor settings
 - Add custom features
+- Switch to Alpine by changing `"dockerfile": "Dockerfile"` to `"dockerfile": "Dockerfile.alpine"`

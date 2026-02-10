@@ -19,7 +19,6 @@ WORKDIR /workspace
 # Using the latest release for linux-x64
 RUN ARCH="linux-x64" && \
     wget -q https://github.com/YosysHQ/oss-cad-suite-build/releases/latest/download/oss-cad-suite-${ARCH}.tgz && \
-    mkdir -p /opt/oss-cad-suite && \
     tar -xzf oss-cad-suite-${ARCH}.tgz -C /opt && \
     rm oss-cad-suite-${ARCH}.tgz
 
